@@ -49,7 +49,11 @@ export default {
         const equals = operation === '=';
         const currentOperation = this.operation;
         try {          
-          this.values[0]  = parseFloat(eval(`${this.values[0]} ${currentOperation} ${this.values[1]}`));         
+          this.values[0]  = parseFloat(eval(`${this.values[0]} ${currentOperation} ${this.values[1]}`));   
+          if (isNaN(this.values[0]) || !isFinite(this.values[0])) {
+            this.clearMemory()
+          return
+          }      
         } catch (error) {
           this.$emit('onError', error);
         }
