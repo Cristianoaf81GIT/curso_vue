@@ -21,6 +21,9 @@ export default {
         { name: 'you', amount: 1234},
         { name: 'he', amount: 900},
         { name: 'I', amount: 853},
+        { name: 'you', amount: 1234},
+        { name: 'he', amount: 900},
+        { name: 'I', amount: 853},
       ],
     }
   }
@@ -28,5 +31,9 @@ export default {
 </script>
 
 <style>
-
+ .pills {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-around;
+ }
 </style>
