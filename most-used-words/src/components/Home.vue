@@ -1,5 +1,18 @@
 <template>
   <v-container fluid>
+  <v-form>
+    <v-file-input 
+      multiple 
+      chips 
+      v-model="files"
+      label="Selecione as legendas"
+      prepend-icon="mdi-message-text"
+      outlined
+      append-outer-icon="mdi-send"
+      @click:append-outer="processSubtitles"
+    />
+    
+  </v-form>
     <div class="pills">
       <Pill 
         v-for="word in groupedWords" 
@@ -21,11 +34,18 @@ export default {
 
   data: function() {
     return {
+      files: [],
       groupedWords: [
         {name: 'you', amount: 900},
         {name: 'he', amount: 853},
         {name: 'i', amount: 1234},
       ]
+    }
+  },
+
+  methods: {
+    processSubtitles() {
+      console.log(this.files);
     }
   }
 
