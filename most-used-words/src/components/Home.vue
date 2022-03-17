@@ -43,13 +43,13 @@ export default {
 
   methods: {
     processSubtitles() {
-      console.log(this.files);
-      const paths = this.files.map(f => f.path);
+      const paths = this.files.map(f => f.path);      
       ipcRenderer.send('process-subtitles', paths);
-      ipcRenderer.on('process-subtitles', (event, resp) => {
-        console.log(resp);
+      ipcRenderer.on('process-subtitles', (_event, resp) => {
+        console.log(resp, 'executando?');
         this.groupedWords = resp
       });
+      console.log(this.groupedWords, 'palavras agrupadas')
     }
   }
 
